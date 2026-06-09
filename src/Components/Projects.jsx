@@ -95,7 +95,7 @@ const Projects = () => {
     const [nav, setNav] = useState("home");
 
     return (
-        <div className="mt-22 pb-20 bg-gray-900 text-center text-white border-b-2 border-green-500 ">
+        <div className=" pb-20 bg-gray-900 text-center text-white border-b-2 border-green-500 ">
             <div className="bg-gray-900 p-3 pt-8 text-2xl md:text-4xl flex justify-center items-center gap-2 ">
                 <div className="h-1 w-10 md:w-16 bg-green-400 rounded-xl"></div>
                 <h1>Projects</h1>

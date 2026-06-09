@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link as ScrollLink } from 'react-scroll'
 import { motion } from 'framer-motion'
 
 const Home = () => {
     return (
         <div>
             {/* Hero Section */}
-            <section className="bg-gray-900 text-white lg:py-30 py-6 px-6 md:px-20 border-b-2 border-green-500 lg:mt-15 mt-16">
+            <section className="bg-gray-900 text-white lg:py-30 py-6 px-6 md:px-20 border-b-2 border-green-500 lg:mt-10 mt-16">
                 <motion.div
                     initial={{ opacity: 0, y: 60 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -32,9 +32,9 @@ const Home = () => {
 
                         {/* Buttons */}
                         <div className="flex items-start sm:items-center gap-4 mt-6">
-                            <Link to="/contact" className="bg-green-400 cursor-pointer text-black px-6 py-3 md:px-5 md:py-3 rounded-lg font-semibold hover:bg-green-500 transition">
+                            <ScrollLink to="contact" smooth={true} duration={500} offset={-70} className="bg-green-400 cursor-pointer text-black px-6 py-3 md:px-5 md:py-3 rounded-lg font-semibold hover:bg-green-500 transition">
                                 Get in Touch
-                            </Link>
+                            </ScrollLink>
                             <div className="flex items-center text-gray-400">
                                 <span className="h-3 w-3 bg-green-400 rounded-full mr-2"></span>
                                 Available now

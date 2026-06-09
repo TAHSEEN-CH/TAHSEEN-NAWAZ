@@ -1,39 +1,48 @@
 import { useState } from "react";
 import { FiMenu, FiX, FiMoon } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <div className="bg-gray-900 text-white transition-all fixed top-0 left-0 w-full border-b-2 border-green-500 z-50">
       {/* Navbar */}
-      <nav className="flex items-center  justify-between p-3 max-w-7xl mx-auto">
+      <nav className="flex items-center justify-between p-3 max-w-7xl mx-auto">
         {/* Logo */}
-        <div className="flex items-center   text-green-400 font-bold text-2xl md:text-4xl">
+        <div className="flex items-center text-green-400 font-bold text-2xl md:text-4xl">
           <img
             src="/logo.png"
             alt="Portfolio Logo"
-            className="w-16 h-16 ms-[-24px]  transition-transform duration-300 hover:scale-110"
+            className="w-16 h-16 ms-[-24px] transition-transform duration-300 hover:scale-110"
           />
           <p>Portfolio.</p>
         </div>
 
-
         {/* Desktop Links */}
         <ul className="hidden md:flex gap-6">
-          <li className="bg-green-400 text-black px-4 py-2 cursor-pointer rounded-lg transition-all duration-300 hover:bg-green-500 hover:scale-105">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="bg-green-400 text-black px-4 py-2 cursor-pointer rounded-lg transition-all duration-300 hover:bg-green-500 hover:scale-105">
-            <Link to="/about">About</Link>
-          </li>
-          <li className="bg-green-400 text-black px-4 py-2 cursor-pointer rounded-lg transition-all duration-300 hover:bg-green-500 hover:scale-105">
-            <Link to="/projects">Projects</Link>
-          </li>
-          <li className="bg-green-400 text-black px-4 py-2 cursor-pointer rounded-lg transition-all duration-300 hover:bg-green-500 hover:scale-105">
-            <Link to="/contact">Contact</Link>
-          </li>
+          <ScrollLink to="home" smooth={true} duration={500} offset={-70}>
+            <li className="bg-green-400 text-black px-4 py-2 cursor-pointer rounded-lg transition-all duration-300 hover:bg-green-500 hover:scale-105">
+              Home
+            </li>
+          </ScrollLink>
+          <ScrollLink to="about" smooth={true} duration={500} offset={-70}>
+            <li className="bg-green-400 text-black px-4 py-2 cursor-pointer rounded-lg transition-all duration-300 hover:bg-green-500 hover:scale-105">
+              About
+            </li>
+          </ScrollLink>
+          <ScrollLink to="projects" smooth={true} duration={500} offset={-70}>
+            <li className="bg-green-400 text-black px-4 py-2 cursor-pointer rounded-lg transition-all duration-300 hover:bg-green-500 hover:scale-105">
+              Projects
+            </li>
+          </ScrollLink>
+          <ScrollLink to="contact" smooth={true} duration={500} offset={-70}>
+            <li className="bg-green-400 text-black px-4 py-2 cursor-pointer rounded-lg transition-all duration-300 hover:bg-green-500 hover:scale-105">
+              Contact
+            </li>
+          </ScrollLink>
         </ul>
 
         <div className="flex items-center gap-4">
@@ -54,10 +63,10 @@ function Navbar() {
       {/* Mobile Menu */}
       <div className={`md:hidden bg-gray-800 transition-all duration-300 ${isMenuOpen ? "block" : "hidden"}`}>
         <ul className="flex flex-col items-center py-6">
-          <li><Link to="/" className="text-white px-4 py-2" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
-          <li><Link to="/about" className="text-white px-4 py-2" onClick={() => setIsMenuOpen(false)}>About</Link></li>
-          <li><Link to="/projects" className="text-white px-4 py-2" onClick={() => setIsMenuOpen(false)}>Projects</Link></li>
-          <li><Link to="/contact" className="text-white px-4 py-2" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
+          <li><ScrollLink to="home" smooth={true} duration={500} offset={-70} onClick={closeMenu} className="text-white px-4 py-2 cursor-pointer block">Home</ScrollLink></li>
+          <li><ScrollLink to="about" smooth={true} duration={500} offset={-70} onClick={closeMenu} className="text-white px-4 py-2 cursor-pointer block">About</ScrollLink></li>
+          <li><ScrollLink to="projects" smooth={true} duration={500} offset={-70} onClick={closeMenu} className="text-white px-4 py-2 cursor-pointer block">Projects</ScrollLink></li>
+          <li><ScrollLink to="contact" smooth={true} duration={500} offset={-70} onClick={closeMenu} className="text-white px-4 py-2 cursor-pointer block">Contact</ScrollLink></li>
         </ul>
       </div>
     </div>

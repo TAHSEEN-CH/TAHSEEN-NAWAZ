@@ -34,10 +34,10 @@ const Contact = () => {
         <div className="h-1 w-10 md:w-16 lg:w-16 rounded-xl bg-green-400"></div>
       </div>
 
-      <div className="flex flex-col lg:flex-row lg:h-[70vh] items- justify-center gap-  w-full">
+      <div className="flex flex-col lg:flex-row lg:h-[70vh] items- justify-center gap-  w-full group">
         {/* Image Section */}
-        <div className="relative w-full lg:w-3/7">
-          <img src="./img.png" alt="" className=" w-full md:h-[50vh] lg:h-full sm:h-[10vh] object-cover  md:rounded-t-xl lg:rounded-l-xl max-md:rounded-t-xl shadow-md" />
+        <div className="relative w-full lg:w-3/7  overflow-hidden md:rounded-t-xl lg:rounded-l-xl max-md:rounded-t-xl">
+          <img src="./img.png" alt="" className=" group-hover:scale-107 transition duration-600 w-full md:h-[50vh] lg:h-full sm:h-[10vh] object-cover  md:rounded-t-xl lg:rounded-l-xl max-md:rounded-t-xl shadow-md" />
 
           <div className="absolute inset-0 bg-black opacity-30 lg:rounded-l-xl md:rounded-t-xl max-md:rounded-t-xl"></div>
 

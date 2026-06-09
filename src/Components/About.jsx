@@ -8,7 +8,7 @@ import { SiGithub, SiTailwindcss } from "react-icons/si";
 
 const About = () => {
   return (
-    <section id="about" className="bg-gray-900 text-white py-20 lg:pb-18  p-8 md:mt-10 md:pb-6 border-b-2 border-green-500 lg:mt-20">
+    <section id="about" className="bg-gray-900 text-white py-20 lg:pb-18  p-8  md:pb-6 border-b-2 border-green-500 ">
       <div className="container mx-auto flex flex-col-reverse md:grid md:grid-cols-2 md:gap-4 items-center md:py-8 ">
 
         {/* Image Section */}
@@ -62,7 +62,7 @@ const About = () => {
             <div className="flex items-center gap-2 cursor-pointer bg-gray-800 p-2 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-md hover:shadow-green-400">
               <SiGithub className="text-blue-500 text-2xl" /> GitHub
             </div>
-            <a href="/TAHSEEN NAWAZ CV.pdf">
+            <a href="/Tahseen_Nawaz_Resume.pdf">
               <button className="bg-green-400 cursor-pointer text-black px-6 py-3 rounded-lg font-semibold hover:bg-green-500 transition">
                 Download Resume
               </button>
