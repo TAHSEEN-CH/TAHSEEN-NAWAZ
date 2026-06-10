@@ -206,9 +206,9 @@ const Home = () => {
                                 }}
                             >
                                 <motion.img
-                                    src="/th.png"
+                                    src="/image.jpeg"
                                     alt="Tahseen Nawaz"
-                                    className="w-64 sm:w-80 md:w-96 h-auto transition-transform duration-500"
+                                    className="w-64 sm:w-80 md:w-100 h-auto transition-transform duration-500"
                                     whileHover={{ scale: 1.1 }}
                                     initial={{ scale: 1 }}
                                 />

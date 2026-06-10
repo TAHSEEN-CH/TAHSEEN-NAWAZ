@@ -86,9 +86,9 @@ const About = () => {
                 transition={{ duration: 0.3 }}
               >
                 <motion.img
-                  src="/tah4.jpg"
+                  src="/image1.jpeg"
                   alt="Profile"
-                  className="w-72 md:w-96 transition-all duration-500"
+                  className="w-72 md:w-86 transition-all duration-500"
                   whileHover={{ scale: 1.1 }}
                   initial={{ scale: 1 }}
                 />

@@ -66,13 +66,13 @@ function Navbar() {
           <img
             src="/logo.png"
             alt="Portfolio Logo"
-            className="w-16 h-16 ms-[-24px] transition-transform duration-300 hover:scale-110"
+            className="w-16 h-16 ms-[-10px] transition-transform duration-300 hover:scale-110"
           />
           <p>Tahseen_Dev</p>
         </motion.div>
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex gap-6">
+        <ul className="hidden lg:flex gap-6">
           <ScrollLink to="home" smooth={true} duration={500} offset={-70}>
             <motion.li 
               className="bg-green-400 text-black px-4 py-2 cursor-pointer rounded-lg transition-all duration-300 hover:bg-green-500 hover:scale-105"
@@ -146,7 +146,7 @@ function Navbar() {
 
           {/* Mobile Menu Button with Animation */}
           <motion.button
-            className="md:hidden text-3xl focus:outline-none"
+            className="lg:hidden text-3xl focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
             whileTap={{ scale: 0.9 }}
@@ -165,7 +165,7 @@ function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="md:hidden bg-gray-800/95 backdrop-blur-lg rounded-lg mx-4 mb-4 overflow-hidden"
+            className="lg:hidden bg-gray-800/95 backdrop-blur-lg rounded-lg mx-4 mb-4 overflow-hidden"
             variants={mobileMenuVariants}
             initial="hidden"
             animate="visible"
