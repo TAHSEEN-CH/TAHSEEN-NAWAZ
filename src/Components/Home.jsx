@@ -73,7 +73,7 @@ const Home = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: 'easeOut' }}
                     viewport={{ once: true }}
-                    className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 py-6 gap-10 gap-y-15 md:gap-y-20 items-center lg:px-2 md:py-30 lg:py-14"
+                    className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 py-15 gap-10 gap-y-18 md:gap-y-20 items-center lg:px-2 md:py-30 lg:py-14"
                 >
                     {/* Left Section */}
                     <motion.div
@@ -213,6 +213,19 @@ const Home = () => {
                                     initial={{ scale: 1 }}
                                 />
                             </div>
+                            {/* Decorative rotating ring */}
+                            <motion.div
+                                className="absolute -z-10 w-full h-full rounded-full border-2 border-green-400/30"
+                                style={{ top: "-10%", left: "-10%", width: "120%", height: "120%" }}
+                                animate={{
+                                    rotate: 360,
+                                    scale: [1, 1.1, 1],
+                                }}
+                                transition={{
+                                    rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                                    scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+                                }}
+                            />
 
                             {/* Decorative floating elements */}
                             <motion.div

@@ -158,7 +158,7 @@ const Skills = () => {
 
                 {/* Skills Categories */}
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-7xl mx-auto"
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -192,7 +192,7 @@ const Skills = () => {
                                 </motion.h3>
                             </div>
 
-                            <div className="flex flex-wrap gap-3">
+                            <div className="flex flex-wrap gap-3 gap-x-6">
                                 {skills.map((skill, skillIndex) => (
                                     <motion.div
                                         key={skill.name}

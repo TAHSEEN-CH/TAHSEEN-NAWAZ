@@ -1,9 +1,8 @@
 // Projects.jsx
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BsBootstrapFill } from 'react-icons/bs';
-import { FaReact, FaJs, FaCss3Alt, FaHtml5, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import { SiTailwindcss } from 'react-icons/si';
+import { FaReact, FaJs, FaCss3Alt, FaHtml5, FaGithub, FaExternalLinkAlt, FaNodeJs } from "react-icons/fa";
+import { SiNextdotjs, SiTailwindcss, SiMongodb, SiExpress, SiChartdotjs, SiSocketdotio, SiOpenai } from "react-icons/si";
 
 const cards = [
     {
@@ -13,12 +12,12 @@ const cards = [
         image: "/logo.png",
         demoLink: "https://example.com/demo1",
         codeLink: "https://github.com/example/project1",
-        technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
-        icons: [
-            { icon: <FaHtml5 />, style: "text-red-400 text-2xl" },
-            { icon: <FaCss3Alt />, style: "text-blue-500 text-2xl" },
-            { icon: <FaJs />, style: "text-yellow-400 text-2xl" },
-            { icon: <FaReact />, style: "text-blue-400 text-2xl" },
+        technologies: [
+            { name: "React", icon: FaReact, color: "text-cyan-400" },
+            { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
+            { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
+            { name: "Express", icon: SiExpress, color: "text-gray-400" },
+            { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
         ],
     },
     {
@@ -28,12 +27,11 @@ const cards = [
         image: "/logo.png",
         demoLink: "https://example.com/demo2",
         codeLink: "https://github.com/example/project2",
-        technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "MongoDB"],
-        icons: [
-            { icon: <FaReact />, style: "text-blue-400 text-2xl" },
-            { icon: <FaJs />, style: "text-yellow-400 text-2xl" },
-            { icon: <FaCss3Alt />, style: "text-blue-500 text-2xl" },
-            { icon: <FaHtml5 />, style: "text-red-400 text-2xl" },
+        technologies: [
+            { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
+            { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
+            { name: "Framer", icon: FaReact, color: "text-cyan-400" },
+            { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
         ],
     },
     {
@@ -43,12 +41,12 @@ const cards = [
         image: "/logo.png",
         demoLink: "https://example.com/demo3",
         codeLink: "https://github.com/example/project3",
-        technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Tailwind"],
-        icons: [
-            { icon: <FaReact />, style: "text-blue-400 text-2xl" },
-            { icon: <FaJs />, style: "text-yellow-400 text-2xl" },
-            { icon: <FaCss3Alt />, style: "text-blue-500 text-2xl" },
-            { icon: <FaHtml5 />, style: "text-red-400 text-2xl" },
+        technologies: [
+            { name: "React", icon: FaReact, color: "text-cyan-400" },
+            { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
+            { name: "Socket.io", icon: SiSocketdotio, color: "text-gray-400" },
+            { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
+            { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
         ],
     },
     {
@@ -58,12 +56,11 @@ const cards = [
         image: "/logo.png",
         demoLink: "https://example.com/demo4",
         codeLink: "https://github.com/example/project4",
-        technologies: ["Next.js", "OpenAI API", "Tailwind CSS", "MongoDB"],
-        icons: [
-            { icon: <FaHtml5 />, style: "text-red-400 text-2xl" },
-            { icon: <FaCss3Alt />, style: "text-blue-500 text-2xl" },
-            { icon: <FaJs />, style: "text-yellow-400 text-2xl" },
-            { icon: <FaReact />, style: "text-blue-400 text-2xl" },
+        technologies: [
+            { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
+            { name: "OpenAI", icon: SiOpenai, color: "text-green-500" },
+            { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
+            { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
         ],
     },
     {
@@ -73,12 +70,11 @@ const cards = [
         image: "/logo.png",
         demoLink: "https://example.com/demo5",
         codeLink: "https://github.com/example/project5",
-        technologies: ["React", "Express", "MongoDB", "Leaflet", "Tailwind"],
-        icons: [
-            { icon: <FaReact />, style: "text-blue-400 text-2xl" },
-            { icon: <FaJs />, style: "text-yellow-400 text-2xl" },
-            { icon: <FaCss3Alt />, style: "text-blue-500 text-2xl" },
-            { icon: <FaHtml5 />, style: "text-red-400 text-2xl" },
+        technologies: [
+            { name: "React", icon: FaReact, color: "text-cyan-400" },
+            { name: "Express", icon: SiExpress, color: "text-gray-400" },
+            { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
+            { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
         ],
     },
     {
@@ -88,17 +84,15 @@ const cards = [
         image: "/logo.png",
         demoLink: "https://example.com/demo6",
         codeLink: "https://github.com/example/project6",
-        technologies: ["Next.js", "Chart.js", "Node.js", "MongoDB"],
-        icons: [
-            { icon: <FaReact />, style: "text-blue-400 text-2xl" },
-            { icon: <FaJs />, style: "text-yellow-400 text-2xl" },
-            { icon: <FaCss3Alt />, style: "text-blue-500 text-2xl" },
-            { icon: <FaHtml5 />, style: "text-red-400 text-2xl" },
+        technologies: [
+            { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
+            { name: "Chart.js", icon: SiChartdotjs, color: "text-yellow-500" },
+            { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
+            { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
         ],
     },
 ];
 
-// Category filter variants
 const filterVariants = {
     hidden: { y: -20, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
@@ -123,9 +117,26 @@ const cardVariants = {
         transition: { duration: 0.3 }
     },
     hover: {
-        y: -10,
-        scale: 1.02,
+        y: -5,
+        scale: 1.01,
         transition: { duration: 0.3 }
+    }
+};
+
+const skillBadgeVariants = {
+    hidden: { scale: 0, opacity: 0 },
+    visible: {
+        scale: 1,
+        opacity: 1,
+        transition: {
+            type: "spring",
+            stiffness: 200,
+            damping: 15,
+        },
+    },
+    hover: {
+        scale: 1.05,
+        transition: { duration: 0.2 }
     }
 };
 
@@ -135,7 +146,7 @@ const Projects = () => {
     const getFilteredCards = () => {
         if (nav === "home") return cards;
         if (nav === "about") return cards.filter(card => card.title.includes("Portfolio") || card.title.includes("Dashboard"));
-        if (nav === "services") return cards.filter(card => card.title.includes("Landing") || card.title.includes("E-Commerce"));
+        if (nav === "services") return cards.filter(card => card.title.includes("Real Estate") || card.title.includes("E-Commerce"));
         return cards;
     };
 
@@ -143,7 +154,7 @@ const Projects = () => {
 
     return (
         <div className="pb-20 bg-gray-900 text-center text-white border-b-2 border-green-500 overflow-hidden">
-            {/* Section Header with Animation */}
+            {/* Section Header */}
             <motion.div
                 className="bg-gray-900 p-3 pt-8 text-2xl md:text-4xl flex justify-center items-center gap-2"
                 initial={{ y: -50, opacity: 0 }}
@@ -175,7 +186,7 @@ const Projects = () => {
                 />
             </motion.div>
 
-            {/* Filter Navigation with Animation */}
+            {/* Filter Navigation */}
             <motion.nav
                 className="bg-gray-900 h-[70px] flex justify-center items-center"
                 variants={filterVariants}
@@ -211,11 +222,11 @@ const Projects = () => {
                 </ul>
             </motion.nav>
 
-            {/* Projects Grid with AnimatePresence */}
+            {/* Projects Grid - 2 cards on lg and md, 1 on small, reduced card height */}
             <AnimatePresence mode="wait">
                 <motion.div
                     key={nav}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-3 md:px-3 max-w-7xl mx-auto mt-9"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 px-3 md:px-3 max-w-7xl mx-auto mt-9"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
@@ -224,7 +235,7 @@ const Projects = () => {
                     {filteredCards.map((item, index) => (
                         <motion.div
                             key={item.id}
-                            className="bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-green-400/20 border border-gray-700 group"
+                            className="bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-green-400/20 border border-gray-700 group flex flex-col h-auto"
                             variants={cardVariants}
                             initial="hidden"
                             whileInView="visible"
@@ -232,8 +243,8 @@ const Projects = () => {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
                         >
-                            {/* Image Container with Overlay */}
-                            <div className="relative overflow-hidden h-60">
+                            {/* Image Container - Max height increased */}
+                            <div className="relative overflow-hidden h-64 md:h-72 lg:h-80 flex-shrink-0">
                                 <motion.img
                                     src={item.image}
                                     alt={item.title}
@@ -242,39 +253,15 @@ const Projects = () => {
                                     transition={{ duration: 0.5 }}
                                 />
                                 <motion.div
-                                    className="absolute inset-0 bg-green-400/0 group-hover:bg-green-400/20 transition-all duration-300"
-                                    whileHover={{ opacity: 1 }}
+                                    className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"
                                 />
-
-                                {/* Overlay buttons */}
-                                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/50">
-                                    <motion.a
-                                        href={item.demoLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="bg-green-400 text-black px-4 py-2 rounded-lg flex items-center gap-2 font-semibold"
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
-                                        <FaExternalLinkAlt /> Live Demo
-                                    </motion.a>
-                                    <motion.a
-                                        href={item.codeLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 font-semibold"
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
-                                        <FaGithub /> Code
-                                    </motion.a>
-                                </div>
                             </div>
 
-                            {/* Content */}
-                            <div className="p-6">
+                            {/* Content - Optimized height */}
+                            <div className="p-5 flex flex-col flex-grow">
+                                {/* Title - Left aligned */}
                                 <motion.h1
-                                    className="text-2xl font-bold mb-2 group-hover:text-green-400 transition-colors duration-300"
+                                    className="text-xl md:text-2xl font-bold mb-2 group-hover:text-green-400 transition-colors duration-300 text-left"
                                     initial={{ y: 20, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     viewport={{ once: true }}
@@ -283,8 +270,9 @@ const Projects = () => {
                                     {item.title}
                                 </motion.h1>
 
+                                {/* Description - 3 lines max */}
                                 <motion.p
-                                    className="text-gray-300 text-sm mt-2 leading-relaxed"
+                                    className="text-gray-300 text-sm leading-relaxed text-left line-clamp-3 min-h-[60px]"
                                     initial={{ y: 20, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     viewport={{ once: true }}
@@ -293,72 +281,67 @@ const Projects = () => {
                                     {item.description}
                                 </motion.p>
 
-                                {/* Technologies */}
+                                {/* Technologies with Icons - One line flex wrap */}
                                 <motion.div
+                                    className="mt-3"
                                     initial={{ y: 20, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.3 }}
                                 >
-                                    <p className="text-green-400 mt-4 text-sm font-semibold">Technologies Used:</p>
-                                    <div className="flex flex-wrap gap-2 mt-2">
+                                    <p className="text-green-400 text-xs font-semibold mb-1.5 text-left">Tech Stack</p>
+                                    <div className="flex flex-wrap gap-1.5">
                                         {item.technologies.map((tech, idx) => (
-                                            <motion.span
+                                            <motion.div
                                                 key={idx}
-                                                className="bg-gray-800 px-3 py-1 rounded-full text-xs text-gray-300 border border-gray-600"
-                                                whileHover={{ scale: 1.05, backgroundColor: "#22c55e", color: "black" }}
-                                                transition={{ duration: 0.2 }}
+                                                className="group relative"
+                                                variants={skillBadgeVariants}
+                                                initial="hidden"
+                                                whileInView="visible"
+                                                whileHover="hover"
+                                                viewport={{ once: true }}
+                                                transition={{ delay: idx * 0.03 }}
                                             >
-                                                {tech}
-                                            </motion.span>
+                                                <div className="flex items-center gap-1.5 bg-gray-800/80 backdrop-blur-sm px-2.5 py-1 rounded-md border border-gray-600 hover:border-green-400 transition-all duration-300 cursor-pointer shadow-md">
+                                                    <tech.icon className={`${tech.color} text-xs`} />
+                                                    <span className="text-gray-200 font-medium text-[11px]">
+                                                        {tech.name}
+                                                    </span>
+                                                </div>
+                                                <div className="absolute inset-0 rounded-md bg-green-400/0 group-hover:bg-green-400/5 transition-all duration-300 pointer-events-none" />
+                                            </motion.div>
                                         ))}
                                     </div>
                                 </motion.div>
 
-                                {/* Icons */}
+                                {/* Buttons - Min height fixed */}
                                 <motion.div
-                                    className="flex justify-center space-x-3 mt-4 text-2xl"
+                                    className="mt-4 flex justify-start gap-3 min-h-[44px]"
                                     initial={{ y: 20, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.4 }}
                                 >
-                                    {item.icons.map((iconObj, index) => (
-                                        <motion.span
-                                            key={index}
-                                            className={iconObj.style}
-                                            whileHover={{ scale: 1.2, rotate: 5 }}
-                                            transition={{ duration: 0.2 }}
-                                        >
-                                            {iconObj.icon}
-                                        </motion.span>
-                                    ))}
-                                </motion.div>
-
-                                {/* Buttons */}
-                                <motion.div
-                                    className="mt-6 flex justify-center space-x-3"
-                                    initial={{ y: 20, opacity: 0 }}
-                                    whileInView={{ y: 0, opacity: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.5 }}
-                                >
-                                    <motion.button
-                                        className="bg-green-500 text-white px-5 py-2 cursor-pointer rounded-lg hover:bg-green-600 transition font-semibold text-sm"
-                                        whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(34, 197, 94, 0.5)" }}
+                                    <motion.a
+                                        href={item.demoLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-green-500 text-white px-4 md:px-8 py-1.5 rounded-lg flex items-center gap-1.5 font-semibold text-xs hover:bg-green-600 transition shadow-md"
+                                        whileHover={{ scale: 1.05, boxShadow: "0 0 12px rgba(34, 197, 94, 0.5)" }}
                                         whileTap={{ scale: 0.95 }}
-                                        onClick={() => window.open(item.demoLink, '_blank')}
                                     >
-                                        View Demo
-                                    </motion.button>
-                                    <motion.button
-                                        className="border border-gray-500 px-5 py-2 cursor-pointer rounded-lg hover:bg-gray-700 transition font-semibold text-sm"
+                                        <FaExternalLinkAlt size={12} /> Live Demo
+                                    </motion.a>
+                                    <motion.a
+                                        href={item.codeLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="border border-gray-500 px-4 md:px-8 py-1.5 rounded-lg flex items-center gap-1.5 font-semibold text-xs hover:bg-gray-700 transition"
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
-                                        onClick={() => window.open(item.codeLink, '_blank')}
                                     >
-                                        Source Code
-                                    </motion.button>
+                                        <FaGithub size={12} /> Source Code
+                                    </motion.a>
                                 </motion.div>
                             </div>
                         </motion.div>

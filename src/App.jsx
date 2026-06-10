@@ -6,18 +6,20 @@ import Footer from './Components/Footer';
 import Contact from './Components/Contact';
 import Projects from './Components/Projects';
 import Skills from './Components/Skills';
+import WhatsAppButton from './Components/WhatsAppButton';
 
 const App = () => {
-    
+
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <section id="home"><Home /></section>
       <section id="about"><About /></section>
       <section id="about"><Skills /></section>
       <section id="projects"><Projects /></section>
       <section id="contact"><Contact /></section>
-      <Footer/>
+      <WhatsAppButton />
+      <Footer />
     </div>
   )
 }
