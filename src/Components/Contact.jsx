@@ -54,7 +54,7 @@ const Contact = () => {
         />
       </motion.div>
 
-      <div className="flex flex-col lg:flex-row lg:h-[72vh] items- justify-center gap- w-full group overflow-hidden">
+      <div className="flex flex-col lg:flex-row lg:max-h-[72vh] items- justify-center gap- w-full group overflow-hidden max-w-7xl mx-auto">
         {/* Image Section with Animations */}
         <motion.div
           className="relative w-full lg:w-3/7 overflow-hidden md:rounded-t-xl lg:rounded-l-xl max-md:rounded-t-xl"

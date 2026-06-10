@@ -73,7 +73,7 @@ const Home = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: 'easeOut' }}
                     viewport={{ once: true }}
-                    className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 py-15 gap-10 gap-y-18 md:gap-y-20 items-center lg:px-2 md:py-30 lg:py-14"
+                    className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 py-15 gap-10 gap-y-18 md:gap-y-20 items-center lg:px-2 md:py-30 lg:py-14 max-w-7xl mx-auto"
                 >
                     {/* Left Section */}
                     <motion.div
