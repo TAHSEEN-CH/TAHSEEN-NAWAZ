@@ -74,14 +74,14 @@ function Navbar() {
   };
 
   return (
-    <div className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out text-white bg-gray-900 
+    <div className={`fixed top-0 left-0 w-full z-50 transition-all  duration-600  ease-in-out text-white bg-gray-900 
       ${scrolled
-        ? 'bg-transparent backdrop-blur-md border-b-1 border-gray-800 shadow-md shadow-gray-800'
-        : ' border-b-2 border-green-500'
+        ? 'bg-transparent backdrop-blur-md border-b-1 border-gray-800 shadow-md shadow-gray-800 py-2'
+        : ' border-b-1 border-green-500/50 shadow-md shadow-green-500/40 py-3'
       }
     `}>
       {/* Navbar */}
-      <nav className="flex items-center justify-between p-3 max-w-7xl mx-auto">
+      <nav className="flex items-center justify-between max-w-7xl mx-auto px-3">
         {/* Logo */}
         <motion.div
           className="flex items-center text-green-400 font-bold text-2xl md:text-4xl"
