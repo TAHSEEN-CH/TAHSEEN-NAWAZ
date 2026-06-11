@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiMenu, FiX, FiMoon } from "react-icons/fi";
 import { Link as ScrollLink } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
@@ -7,6 +7,27 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if scroll value is greater than 1px
+      if (window.scrollY > 1) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   // Mobile menu animation variants
   const mobileMenuVariants = {
@@ -53,11 +74,16 @@ function Navbar() {
   };
 
   return (
-    <div className="bg-gray-900 text-white transition-all fixed top-0 left-0 w-full border-b-2 border-green-500 z-50">
+    <div className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out text-white bg-gray-900 
+      ${scrolled
+        ? 'bg-transparent backdrop-blur-md border-b-1 border-gray-800 shadow-md shadow-gray-800'
+        : ' border-b-2 border-green-500'
+      }
+    `}>
       {/* Navbar */}
       <nav className="flex items-center justify-between p-3 max-w-7xl mx-auto">
         {/* Logo */}
-        <motion.div 
+        <motion.div
           className="flex items-center text-green-400 font-bold text-2xl md:text-4xl"
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -74,7 +100,7 @@ function Navbar() {
         {/* Desktop Links */}
         <ul className="hidden lg:flex gap-6">
           <ScrollLink to="home" smooth={true} duration={500} offset={-70}>
-            <motion.li 
+            <motion.li
               className="bg-green-400 text-black px-4 py-2 cursor-pointer rounded-lg transition-all duration-300 hover:bg-green-500 hover:scale-105"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -86,7 +112,7 @@ function Navbar() {
             </motion.li>
           </ScrollLink>
           <ScrollLink to="about" smooth={true} duration={500} offset={-70}>
-            <motion.li 
+            <motion.li
               className="bg-green-400 text-black px-4 py-2 cursor-pointer rounded-lg transition-all duration-300 hover:bg-green-500 hover:scale-105"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -98,7 +124,7 @@ function Navbar() {
             </motion.li>
           </ScrollLink>
           <ScrollLink to="skills" smooth={true} duration={500} offset={-70}>
-            <motion.li 
+            <motion.li
               className="bg-green-400 text-black px-4 py-2 cursor-pointer rounded-lg transition-all duration-300 hover:bg-green-500 hover:scale-105"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -110,7 +136,7 @@ function Navbar() {
             </motion.li>
           </ScrollLink>
           <ScrollLink to="projects" smooth={true} duration={500} offset={-70}>
-            <motion.li 
+            <motion.li
               className="bg-green-400 text-black px-4 py-2 cursor-pointer rounded-lg transition-all duration-300 hover:bg-green-500 hover:scale-105"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -122,7 +148,7 @@ function Navbar() {
             </motion.li>
           </ScrollLink>
           <ScrollLink to="contact" smooth={true} duration={500} offset={-70}>
-            <motion.li 
+            <motion.li
               className="bg-green-400 text-black px-4 py-2 cursor-pointer rounded-lg transition-all duration-300 hover:bg-green-500 hover:scale-105"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -165,7 +191,7 @@ function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="lg:hidden bg-gray-800/95 backdrop-blur-lg rounded-lg mx-4 mb-4 overflow-hidden"
+            className="lg:hidden bg-transparent  rounded-lg mx-4 mb-4 overflow-hidden"
             variants={mobileMenuVariants}
             initial="hidden"
             animate="visible"
@@ -173,60 +199,60 @@ function Navbar() {
           >
             <ul className="flex flex-col items-center py-6 space-y-3">
               <motion.li variants={mobileMenuItemVariants}>
-                <ScrollLink 
-                  to="home" 
-                  smooth={true} 
-                  duration={500} 
-                  offset={-70} 
-                  onClick={closeMenu} 
+                <ScrollLink
+                  to="home"
+                  smooth={true}
+                  duration={500}
+                  offset={-70}
+                  onClick={closeMenu}
                   className="text-white px-4 py-2 cursor-pointer block hover:text-green-400 transition-colors duration-300 text-lg"
                 >
                   Home
                 </ScrollLink>
               </motion.li>
               <motion.li variants={mobileMenuItemVariants}>
-                <ScrollLink 
-                  to="about" 
-                  smooth={true} 
-                  duration={500} 
-                  offset={-70} 
-                  onClick={closeMenu} 
+                <ScrollLink
+                  to="about"
+                  smooth={true}
+                  duration={500}
+                  offset={-70}
+                  onClick={closeMenu}
                   className="text-white px-4 py-2 cursor-pointer block hover:text-green-400 transition-colors duration-300 text-lg"
                 >
                   About
                 </ScrollLink>
               </motion.li>
               <motion.li variants={mobileMenuItemVariants}>
-                <ScrollLink 
-                  to="skills" 
-                  smooth={true} 
-                  duration={500} 
-                  offset={-70} 
-                  onClick={closeMenu} 
+                <ScrollLink
+                  to="skills"
+                  smooth={true}
+                  duration={500}
+                  offset={-70}
+                  onClick={closeMenu}
                   className="text-white px-4 py-2 cursor-pointer block hover:text-green-400 transition-colors duration-300 text-lg"
                 >
                   Skills
                 </ScrollLink>
               </motion.li>
               <motion.li variants={mobileMenuItemVariants}>
-                <ScrollLink 
-                  to="projects" 
-                  smooth={true} 
-                  duration={500} 
-                  offset={-70} 
-                  onClick={closeMenu} 
+                <ScrollLink
+                  to="projects"
+                  smooth={true}
+                  duration={500}
+                  offset={-70}
+                  onClick={closeMenu}
                   className="text-white px-4 py-2 cursor-pointer block hover:text-green-400 transition-colors duration-300 text-lg"
                 >
                   Projects
                 </ScrollLink>
               </motion.li>
               <motion.li variants={mobileMenuItemVariants}>
-                <ScrollLink 
-                  to="contact" 
-                  smooth={true} 
-                  duration={500} 
-                  offset={-70} 
-                  onClick={closeMenu} 
+                <ScrollLink
+                  to="contact"
+                  smooth={true}
+                  duration={500}
+                  offset={-70}
+                  onClick={closeMenu}
                   className="text-white px-4 py-2 cursor-pointer block hover:text-green-400 transition-colors duration-300 text-lg"
                 >
                   Contact

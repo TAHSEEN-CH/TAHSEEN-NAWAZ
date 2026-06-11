@@ -44,8 +44,9 @@ const Home = () => {
 
     return (
         <div>
+            <div className='py-5 bg-gray-900'></div>
             {/* Hero Section */}
-            <section className="bg-gray-900 text-white lg:py-30 py-6 px-6 md:px-20 border-b-2 border-green-500 lg:mt-10 md:mt-10 mt-18 relative overflow-hidden">
+            <section className="bg-gray-900 text-white lg:py-30 py-6 md:pt-0 px-6 md:px-20 border-b-2 border-green-500  relative overflow-hidden">
                 {/* Animated background particles */}
                 {particles.map((particle) => (
                     <motion.div

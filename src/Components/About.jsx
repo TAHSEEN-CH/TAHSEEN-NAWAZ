@@ -57,7 +57,7 @@ const About = () => {
           </motion.p>
         </motion.div>
 
-        <div className="flex flex-col-reverse md:grid md:grid-cols-1 lg:grid-cols-2 md:gap-4 gap-y-10 items-center md:py-8">
+        <div className="flex flex-col-reverse md:grid md:grid-cols-1 lg:grid-cols-2 md:gap-4 gap-y-15 items-center md:py-8">
           {/* Image Section with Enhanced Floating Animation */}
           <motion.div
             className="flex justify-center relative"
