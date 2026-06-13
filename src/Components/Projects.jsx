@@ -2,92 +2,100 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaReact, FaJs, FaCss3Alt, FaHtml5, FaGithub, FaExternalLinkAlt, FaNodeJs } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiMongodb, SiExpress, SiChartdotjs, SiSocketdotio, SiOpenai } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss, SiMongodb, SiExpress, SiChartdotjs, SiSocketdotio, SiOpenai, SiRedux } from "react-icons/si";
+import { TbWorld } from 'react-icons/tb';
 
 const cards = [
     {
         id: 1,
-        title: "E-Commerce Platform",
-        description: "A full-featured e-commerce platform with cart functionality, user authentication, and payment integration. Built with MERN stack and Redux for state management.",
-        image: "/logo.png",
-        demoLink: "https://example.com/demo1",
-        codeLink: "https://github.com/example/project1",
+        title: "Alkhaldi Law Firm",
+        description: "A professional law firm website developed to present legal services, consultations, and firm expertise through a modern and responsive design. The platform enhances client engagement with intuitive navigation, service showcases, and streamlined contact options for legal assistance.",
+        image: "/projects/lawyer.PNG",
+        demoLink: "https://lawyer-pi-three.vercel.app/",
+        codeLink: "https://github.com/shakeeldev1/lawyer",
         technologies: [
             { name: "React", icon: FaReact, color: "text-cyan-400" },
-            { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
-            { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
-            { name: "Express", icon: SiExpress, color: "text-gray-400" },
             { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
+            { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
+            { name: "Express", icon: SiExpress, color: "text-gray-400" },
+            { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
         ],
     },
     {
         id: 2,
-        title: "Portfolio Dashboard",
-        description: "Interactive dashboard for creative professionals with dynamic content management, project showcase, and contact form integration.",
-        image: "/logo.png",
-        demoLink: "https://example.com/demo2",
-        codeLink: "https://github.com/example/project2",
+        title: "AKOYA Luxury Laundry",
+        description: "A modern and responsive luxury laundry services website designed to showcase premium laundry, dry cleaning, and garment care services. Built with a clean user interface, elegant branding, service highlights, and seamless customer engagement features to provide a premium digital experience.",
+        image: "/projects/Akoya.PNG",
+        demoLink: "https://lundary.vercel.app/",
+        codeLink: "https://github.com/shakeeldev1/Londary",
         technologies: [
-            { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
+            { name: "React", icon: FaReact, color: "text-cyan-400" },
+            { name: "Redux", icon: SiRedux, color: "text-gray-400" },
             { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
-            { name: "Framer", icon: FaReact, color: "text-cyan-400" },
+            { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
+            { name: "Express", icon: SiExpress, color: "text-gray-400" },
             { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
         ],
     },
     {
         id: 3,
-        title: "Task Management App",
-        description: "Collaborative task management application with real-time updates, team workspaces, and progress tracking features.",
-        image: "/logo.png",
-        demoLink: "https://example.com/demo3",
-        codeLink: "https://github.com/example/project3",
+        title: "Qatar Charity Website",
+        description: "A responsive multilingual charity website designed to promote charitable initiatives, community services, and social welfare programs while facilitating community engagement. The platform provides a seamless user experience across multiple languages and devices, enabling users to access charitable resources, support initiatives, and connect with community-driven services effectively.",
+        image: "/projects/Charity.PNG",
+        demoLink: "https://charity-blush-psi.vercel.app/",
+        codeLink: "https://github.com/shakeeldev1/Charity",
         technologies: [
-            { name: "React", icon: FaReact, color: "text-cyan-400" },
-            { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
-            { name: "Socket.io", icon: SiSocketdotio, color: "text-gray-400" },
-            { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
+            { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
+            { name: "Next.js i18n", icon: TbWorld, color: "text-blue-500" },
+            { name: "Chart.js", icon: SiChartdotjs, color: "text-yellow-500" },
             { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
+            { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
+            { name: "Express", icon: SiExpress, color: "text-gray-400" },
+            { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
         ],
     },
     {
         id: 4,
-        title: "AI Content Generator",
-        description: "Web application that uses AI to generate content for blogs, social media, and marketing materials with customizable templates.",
-        image: "/logo.png",
-        demoLink: "https://example.com/demo4",
-        codeLink: "https://github.com/example/project4",
+        title: "FoodyMart Resturent",
+        description: "A modern online food ordering platform developed to provide customers with a seamless dining experience. The website features an interactive menu, food categories, online ordering functionality, responsive design, and an intuitive user interface, allowing users to browse, select, and order meals efficiently across all devices.",
+        image: "/projects/resturent.PNG",
+        demoLink: "https://restaurant-rho-ruddy.vercel.app/",
+        codeLink: "https://github.com/shakeeldev1/restaurant",
         technologies: [
-            { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
-            { name: "OpenAI", icon: SiOpenai, color: "text-green-500" },
+            { name: "React", icon: FaReact, color: "text-cyan-400" },
             { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
+            { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
+            { name: "Express", icon: SiExpress, color: "text-gray-400" },
             { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
         ],
     },
     {
         id: 5,
-        title: "Real Estate Platform",
-        description: "Property listing platform with advanced search filters, map integration, and virtual tour capabilities.",
-        image: "/logo.png",
-        demoLink: "https://example.com/demo5",
-        codeLink: "https://github.com/example/project5",
+        title: "Business Startup Platform",
+        description: "A modern business startup platform helping companies in Saudi Arabia, Qatar, and Oman grow through digital solutions, professional services, and strategic business development.",
+        image: "/projects/bussniss startup.PNG",
+        demoLink: "https://business-startup-six.vercel.app/",
+        codeLink: "https://github.com/shakeeldev1/business-startup",
         technologies: [
-            { name: "React", icon: FaReact, color: "text-cyan-400" },
+            { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
+            { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
+            { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
             { name: "Express", icon: SiExpress, color: "text-gray-400" },
             { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
-            { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
         ],
     },
     {
         id: 6,
-        title: "Social Media Analytics",
-        description: "Dashboard for tracking social media metrics, engagement rates, and audience insights with data visualization.",
-        image: "/logo.png",
-        demoLink: "https://example.com/demo6",
-        codeLink: "https://github.com/example/project6",
+        title: "Pest Control Services Platform",
+        description: "A modern and responsive pest control website designed to help residential and commercial clients access professional pest management solutions. The platform showcases pest control services, treatment plans, inspection requests, and customer support features through an intuitive and user-friendly interface.",
+        image: "projects/pestcontrol.png",
+        demoLink: "https://pest-control-omega.vercel.app/",
+        codeLink: "https://github.com/shakeeldev1/Pest-Control",
         technologies: [
             { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
-            { name: "Chart.js", icon: SiChartdotjs, color: "text-yellow-500" },
+            { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
             { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
+            { name: "Express", icon: SiExpress, color: "text-gray-400" },
             { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
         ],
     },
@@ -145,8 +153,8 @@ const Projects = () => {
 
     const getFilteredCards = () => {
         if (nav === "home") return cards;
-        if (nav === "about") return cards.filter(card => card.title.includes("Portfolio") || card.title.includes("Dashboard"));
-        if (nav === "services") return cards.filter(card => card.title.includes("Real Estate") || card.title.includes("E-Commerce"));
+        if (nav === "about") return cards.filter(card => card.description.includes("business") || card.title.includes("business"));
+        if (nav === "services") return cards.filter(card => card.description.includes("services") || card.title.includes("services"));
         return cards;
     };
 
@@ -209,7 +217,7 @@ const Projects = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        Web Apps
+                        Businesses
                     </motion.li>
                     <motion.li
                         onClick={() => setNav("services")}
@@ -217,7 +225,7 @@ const Projects = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        Full Stack
+                        Services
                     </motion.li>
                 </ul>
             </motion.nav>
@@ -235,7 +243,7 @@ const Projects = () => {
                     {filteredCards.map((item, index) => (
                         <motion.div
                             key={item.id}
-                            className="bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-green-400/20 border border-gray-700 group flex flex-col h-auto"
+                            className="bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-green-400/20 border border-gray-700 group flex flex-col h-auto group"
                             variants={cardVariants}
                             initial="hidden"
                             whileInView="visible"
@@ -244,11 +252,11 @@ const Projects = () => {
                             transition={{ delay: index * 0.1 }}
                         >
                             {/* Image Container - Max height increased */}
-                            <div className="relative overflow-hidden h-64 md:h-72 lg:h-80 flex-shrink-0">
+                            <div className="relative overflow-hidden h-64 md:h-72 lg:h-80 flex-shrink-0 group-hover:scale-105 transition-transform ease-in-out duration-600">
                                 <motion.img
                                     src={item.image}
                                     alt={item.title}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full"
                                     whileHover={{ scale: 1.1 }}
                                     transition={{ duration: 0.5 }}
                                 />
@@ -258,10 +266,10 @@ const Projects = () => {
                             </div>
 
                             {/* Content - Optimized height */}
-                            <div className="p-5 flex flex-col flex-grow">
+                            <div className="p-3 pt-2 flex flex-col flex-grow ">
                                 {/* Title - Left aligned */}
                                 <motion.h1
-                                    className="text-xl md:text-2xl font-bold mb-2 group-hover:text-green-400 transition-colors duration-300 text-left"
+                                    className="text-xl md:text-2xl font-bold mb-1 group-hover:text-white text-green-400 transition-colors duration-300 text-left"
                                     initial={{ y: 20, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     viewport={{ once: true }}
