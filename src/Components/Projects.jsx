@@ -149,11 +149,11 @@ const skillBadgeVariants = {
 };
 
 const Projects = () => {
-    const [nav, setNav] = useState("home");
+    const [nav, setNav] = useState("all");
 
     const getFilteredCards = () => {
-        if (nav === "home") return cards;
-        if (nav === "about") return cards.filter(card => card.description.includes("business") || card.title.includes("business"));
+        if (nav === "all") return cards;
+        if (nav === "Business") return cards.filter(card => card.description.includes("business") || card.title.includes("business"));
         if (nav === "services") return cards.filter(card => card.description.includes("services") || card.title.includes("services"));
         return cards;
     };
@@ -204,7 +204,7 @@ const Projects = () => {
             >
                 <ul className="flex gap-4 flex-wrap justify-center px-4">
                     <motion.li
-                        onClick={() => setNav("home")}
+                        onClick={() => setNav("all")}
                         className={`lg:px-6 md:px-6 px-4 py-2 border rounded-md transition cursor-pointer ${nav === "home" ? "bg-green-400 text-black" : "border-green-400 hover:bg-green-400 hover:text-black"}`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -212,12 +212,12 @@ const Projects = () => {
                         All
                     </motion.li>
                     <motion.li
-                        onClick={() => setNav("about")}
+                        onClick={() => setNav("business")}
                         className={`lg:px-6 md:px-6 px-4 py-2 border rounded-md transition cursor-pointer ${nav === "about" ? "bg-green-400 text-black" : "border-green-400 hover:bg-green-400 hover:text-black"}`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        Businesses
+                        Business
                     </motion.li>
                     <motion.li
                         onClick={() => setNav("services")}
