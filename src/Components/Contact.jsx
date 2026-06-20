@@ -72,7 +72,7 @@ const Contact = () => {
         />
       </motion.div>
 
-      <div className={`flex flex-col lg:flex-row lg:max-h-[75vh]git status justify-center w-full group overflow-hidden max-w-7xl mx-auto transition duration-500 rounded-xl shadow-2xl ${theme === "dark" ? "hover:shadow-gray-600/30" : "shadow-gray-300"} `}>
+      <div className={`flex flex-col lg:flex-row lg:max-h-[75vh] justify-center w-full group overflow-hidden max-w-7xl mx-auto transition duration-500 rounded-xl shadow-2xl ${theme === "dark" ? "hover:shadow-gray-600/30" : "shadow-gray-300"} `}>
         {/* Image Section with Animations */}
         <motion.div
           className="relative w-full lg:w-[50%] overflow-hidden "
