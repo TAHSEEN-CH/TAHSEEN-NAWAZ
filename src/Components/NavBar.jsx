@@ -12,7 +12,7 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const { theme, setTheme } = useContext(ThemeContext)
-  console.log(theme);
+  // console.log(theme);
 
   // Navigation items array
   const navItems = [
@@ -99,7 +99,7 @@ function Navbar() {
         : `border-b-1 ${theme === "dark" ? 'border-green-500/50 shadow-green-500/40' : 'border-green-600/30 shadow-green-600/20'} shadow-md py-2.5`
       }`}>
 
-      <nav className="flex items-center justify-between max-w-7xl mx-auto px-3">
+      <nav className="flex items-center justify-between max-w-7xl mx-auto px-3 md:px-5 lg:px-0">
         {/* Logo */}
         <motion.div
           className={`flex items-center font-bold text-2xl md:text-4xl

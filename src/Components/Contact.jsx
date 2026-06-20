@@ -72,7 +72,7 @@ const Contact = () => {
         />
       </motion.div>
 
-      <div className={`flex flex-col lg:flex-row lg:max-h-[72vh] justify-center w-full group overflow-hidden max-w-7xl mx-auto transition duration-500 rounded-xl shadow-2xl ${theme === "dark" ? "hover:shadow-gray-600/30" : "shadow-gray-300"} `}>
+      <div className={`flex flex-col lg:flex-row lg:max-h-[75vh]git status justify-center w-full group overflow-hidden max-w-7xl mx-auto transition duration-500 rounded-xl shadow-2xl ${theme === "dark" ? "hover:shadow-gray-600/30" : "shadow-gray-300"} `}>
         {/* Image Section with Animations */}
         <motion.div
           className="relative w-full lg:w-[50%] overflow-hidden "
@@ -249,7 +249,7 @@ const Contact = () => {
             >
               <motion.button
                 type="submit"
-                className={`w-[70%] mx-auto cursor-pointer text-black py-4 rounded-lg font-medium flex items-center justify-center gap-2 shadow-md mt-4 lg:mt-6
+                className={`w-[70%] mx-auto cursor-pointer text-black py-4 rounded-lg font-medium flex items-center justify-center gap-2 shadow-md mt-4
                             ${theme === "dark"
                     ? 'bg-gradient-to-r from-green-400 to-green-500'
                     : 'bg-gradient-to-r from-green-500 to-green-600'
