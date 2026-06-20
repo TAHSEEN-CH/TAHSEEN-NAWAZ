@@ -3,8 +3,11 @@ import { motion } from "framer-motion";
 import { FaFacebook, FaLinkedin, FaGithub, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
 import { SiFiverr, SiUpwork } from "react-icons/si";
 import { Link as ScrollLink } from "react-scroll";
+import { ThemeContext } from "../Context/Theme.Context";
+import { useContext } from "react";
 
 const Footer = () => {
+    const { theme, setTheme } = useContext(ThemeContext)
     // Animation variants
     const containerVariants = {
         hidden: { opacity: 0, y: 50 },
@@ -70,7 +73,12 @@ const Footer = () => {
 
     return (
         <motion.footer
-            className="bg-[#1E293B] text-white py-4 px-4 text-center overflow-hidden"
+            className={`py-4 px-4 text-center overflow-hidden
+        ${theme === "dark"
+                    ? 'bg-[#1E293B] text-white'
+                    : 'bg-gray-50 text-gray-900'
+                }
+    `}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -90,7 +98,9 @@ const Footer = () => {
 
                 {/* Navigation Links with Stagger Animation */}
                 <motion.ul
-                    className="flex lg:space-x-8 md:space-x-8 space-x-1 text-gray-300 font-medium text-lg mb-6  justify-center gap-4 "
+                    className={`flex lg:space-x-8 md:space-x-8 space-x-1 font-medium text-lg mb-6 justify-center gap-4
+                ${theme === "dark" ? 'text-gray-300' : 'text-gray-600'}
+            `}
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -99,8 +109,13 @@ const Footer = () => {
                     {["home", "about", "skills", "projects", "contact"].map((item, index) => (
                         <motion.li
                             key={item}
-                            className="relative cursor-pointer hover:text-green-400 transition 
-                 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-green-400 after:transition-all after:duration-300 hover:after:w-full"
+                            className={`relative cursor-pointer transition 
+                        after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:transition-all after:duration-300 hover:after:w-full
+                        ${theme === "dark"
+                                    ? 'hover:text-green-400 after:bg-green-400'
+                                    : 'hover:text-green-600 after:bg-green-600'
+                                }
+                    `}
                             variants={linkVariants}
                             custom={index}
                             whileHover={{ x: 3 }}
@@ -126,12 +141,16 @@ const Footer = () => {
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-3 bg-[#2D3748] rounded-lg shadow-lg transition-all duration-300 hover:shadow-green-400"
+                            className={`p-3 rounded-lg shadow-lg transition-all duration-300
+                        ${theme === "dark"
+                                    ? 'bg-[#2D3748] hover:shadow-green-400'
+                                    : 'bg-gray-300 hover:shadow-green-600/30 shadow-gray-300'
+                                }
+                    `}
                             variants={iconVariants}
                             custom={index}
                             whileHover="hover"
                             animate="visible"
-                            custom={index}
                         >
                             <motion.div
                                 variants={iconVariants}
@@ -145,7 +164,12 @@ const Footer = () => {
 
                 {/* Copyright Text with Animation */}
                 <motion.p
-                    className="text-white/70 text-sm border-t border-green-500 pt-4 w-full text-center"
+                    className={`text-sm border-t pt-4 w-full text-center
+                ${theme === "dark"
+                            ? 'text-white/70 border-green-500'
+                            : 'text-gray-500 border-green-600'
+                        }
+            `}
                     variants={itemVariants}
                     initial="hidden"
                     whileInView="visible"

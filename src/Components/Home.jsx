@@ -1,7 +1,8 @@
 // Home.jsx
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link as ScrollLink } from 'react-scroll'
 import { motion } from 'framer-motion'
+import { ThemeContext } from '../Context/Theme.Context';
 
 const Home = () => {
     const titles = [
@@ -10,6 +11,7 @@ const Home = () => {
         "Next.js Developer",
         "MERN Stack Developer"
     ];
+    const { theme, setTheme } = useContext(ThemeContext)
 
     const [currentTitle, setCurrentTitle] = useState(0);
 
@@ -43,15 +45,17 @@ const Home = () => {
     }));
 
     return (
-        <div>
-            <div className='py-5 bg-gray-900'></div>
+       <div>
+            {/* Spacer - adapts to theme */}
+            <div className={`py-5 ${theme === "dark" ? 'bg-gray-900' : 'bg-gray-50'}`}></div>
+            
             {/* Hero Section */}
-            <section className="bg-gray-900 text-white lg:py-30 py-6 md:pt-0 px-6 md:px-20 border-b-2 border-green-500  relative overflow-hidden">
-                {/* Animated background particles */}
+            <section className={`${theme === "dark" ? 'bg-gray-900 text-white border-green-500' : 'bg-gray-50 text-gray-800 border-green-600'} lg:py-30 py-6 md:pt-0 px-6 md:px-20 border-b-2 relative overflow-hidden`}>
+                {/* Animated background particles - slightly different opacity for light theme */}
                 {particles.map((particle) => (
                     <motion.div
                         key={particle.id}
-                        className="absolute w-1 h-1 bg-green-400/30 rounded-full"
+                        className={`absolute w-1 h-1 rounded-full ${theme === "dark" ? 'bg-green-400/30' : 'bg-green-600/20'}`}
                         style={{
                             left: `${particle.x}%`,
                             top: `${particle.y}%`,
@@ -88,7 +92,7 @@ const Home = () => {
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8, delay: 0.3 }}
-                            className="text-sm md:text-xl lg:text-sm text-green-400 tracking-[3px]"
+                            className={`text-sm md:text-xl lg:text-sm tracking-[3px] ${theme === "dark" ? 'text-green-400' : 'text-green-600'}`}
                         >
                             TAHSEEN NAWAZ
                         </motion.h3>
@@ -102,7 +106,7 @@ const Home = () => {
                                 type: "spring",
                                 stiffness: 200
                             }}
-                            className="text-3xl lg:text-5xl md:text-5xl font-bold text-green-400 mt-2 min-h-[60px]"
+                            className={`text-3xl lg:text-5xl md:text-5xl font-bold mt-2 min-h-[60px] ${theme === "dark" ? 'text-green-400' : 'text-green-600'}`}
                         >
                             {titles[currentTitle]}
                         </motion.h1>
@@ -112,7 +116,7 @@ const Home = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
                             viewport={{ once: true }}
-                            className="text-gray-300 mt-4 leading-relaxed lg:text-xl md:text-xl"
+                            className={`mt-4 leading-relaxed lg:text-xl md:text-xl ${theme === "dark" ? 'text-gray-300' : 'text-gray-600'}`}
                         >
                             I'm Tahseen Nawaz, a passionate Frontend and MERN Stack Developer with experience building responsive, modern, and user-friendly web applications using React.js, Next.js, JavaScript, Tailwind CSS, Bootstrap, Node.js, Express.js, and MongoDB. I enjoy transforming ideas into high-performance digital solutions while focusing on clean code, exceptional user experiences, and scalable application architecture.
                         </motion.p>
@@ -126,7 +130,12 @@ const Home = () => {
                             className="flex items-center gap-5 mt-6"
                         >
                             <motion.div
-                                whileHover={{ scale: 1.1, boxShadow: "0 0 20px rgba(74, 222, 128, 0.5)" }}
+                                whileHover={{ 
+                                    scale: 1.1, 
+                                    boxShadow: theme === "dark" 
+                                        ? "0 0 20px rgba(74, 222, 128, 0.5)" 
+                                        : "0 0 20px rgba(5, 150, 105, 0.4)"
+                                }}
                                 whileTap={{ scale: 0.95 }}
                             >
                                 <ScrollLink
@@ -134,13 +143,18 @@ const Home = () => {
                                     smooth={true}
                                     duration={500}
                                     offset={-70}
-                                    className="bg-green-400 cursor-pointer text-black px-6 py-3 md:px-5 md:py-3 rounded-lg font-semibold hover:bg-green-500 transition-all duration-300 block"
+                                    className={`cursor-pointer px-6 py-3 md:px-5 md:py-3 rounded-lg font-semibold transition-all duration-300 block
+                                        ${theme === "dark" 
+                                            ? 'bg-green-400 text-black hover:bg-green-500' 
+                                            : 'bg-green-600 text-white hover:bg-green-700'
+                                        }
+                                    `}
                                 >
                                     Get in Touch
                                 </ScrollLink>
                             </motion.div>
 
-                            <div className="flex items-center text-gray-400">
+                            <div className={`flex items-center ${theme === "dark" ? 'text-gray-400' : 'text-gray-600'}`}>
                                 <motion.span
                                     animate={{
                                         scale: [1, 1.5, 1],
@@ -151,7 +165,7 @@ const Home = () => {
                                         repeat: Infinity,
                                         ease: "easeInOut"
                                     }}
-                                    className="h-3 w-3 bg-green-400 rounded-full mr-2"
+                                    className={`h-3 w-3 rounded-full mr-2 ${theme === "dark" ? 'bg-green-400' : 'bg-green-600'}`}
                                 />
                                 <motion.span
                                     initial={{ opacity: 0 }}
@@ -186,7 +200,7 @@ const Home = () => {
                             }}
                             className="relative"
                         >
-                            {/* Glow effect behind image */}
+                            {/* Glow effect behind image - adapts to theme */}
                             <motion.div
                                 animate={{
                                     scale: [1, 1.2, 1],
@@ -197,11 +211,14 @@ const Home = () => {
                                     repeat: Infinity,
                                     ease: "easeInOut"
                                 }}
-                                className="absolute inset-0 bg-green-400/20 rounded-full blur-3xl"
+                                className={`absolute inset-0 rounded-full blur-3xl ${theme === "dark" ? 'bg-green-400/20' : 'bg-green-600/15'}`}
                             />
 
                             <div
-                                className="relative bg-gradient-to-br from-green-400 to-green-600 rounded-4xl overflow-hidden shadow-2xl"
+                                className={`relative rounded-4xl overflow-hidden shadow-2xl ${theme === "dark" 
+                                    ? 'bg-gradient-to-br from-green-400 to-green-600' 
+                                    : 'bg-gradient-to-br from-green-500 to-green-700'
+                                }`}
                                 style={{
                                     clipPath: "polygon(0 0, 100% 0, 85% 100%, 15% 100%)"
                                 }}
@@ -214,9 +231,10 @@ const Home = () => {
                                     initial={{ scale: 1 }}
                                 />
                             </div>
-                            {/* Decorative rotating ring */}
+                            
+                            {/* Decorative rotating ring - adapts to theme */}
                             <motion.div
-                                className="absolute -z-10 w-full h-full rounded-full border-2 border-green-400/30"
+                                className={`absolute -z-10 w-full h-full rounded-full border-2 ${theme === "dark" ? 'border-green-400/30' : 'border-green-600/30'}`}
                                 style={{ top: "-10%", left: "-10%", width: "120%", height: "120%" }}
                                 animate={{
                                     rotate: 360,
@@ -228,7 +246,7 @@ const Home = () => {
                                 }}
                             />
 
-                            {/* Decorative floating elements */}
+                            {/* Decorative floating elements - adapts to theme */}
                             <motion.div
                                 animate={{
                                     y: [0, -10, 0],
@@ -239,7 +257,7 @@ const Home = () => {
                                     repeat: Infinity,
                                     ease: "easeInOut"
                                 }}
-                                className="absolute -top-5 -right-5 w-12 h-12 bg-green-400/20 rounded-full blur-md"
+                                className={`absolute -top-5 -right-5 w-12 h-12 rounded-full blur-md ${theme === "dark" ? 'bg-green-400/20' : 'bg-green-600/15'}`}
                             />
                             <motion.div
                                 animate={{
@@ -252,7 +270,7 @@ const Home = () => {
                                     ease: "easeInOut",
                                     delay: 1
                                 }}
-                                className="absolute -bottom-5 -left-5 w-16 h-16 bg-green-400/20 rounded-full blur-md"
+                                className={`absolute -bottom-5 -left-5 w-16 h-16 rounded-full blur-md ${theme === "dark" ? 'bg-green-400/20' : 'bg-green-600/15'}`}
                             />
                         </motion.div>
                     </motion.div>

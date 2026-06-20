@@ -1,9 +1,10 @@
 // Projects.jsx
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaReact, FaJs, FaCss3Alt, FaHtml5, FaGithub, FaExternalLinkAlt, FaNodeJs } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiMongodb, SiExpress, SiChartdotjs, SiSocketdotio, SiOpenai, SiRedux } from "react-icons/si";
 import { TbWorld } from 'react-icons/tb';
+import { ThemeContext } from '../Context/Theme.Context';
 
 const cards = [
     {
@@ -149,31 +150,37 @@ const skillBadgeVariants = {
 };
 
 const Projects = () => {
+    const { theme, setTheme } = useContext(ThemeContext);
     const [nav, setNav] = useState("all");
 
     const getFilteredCards = () => {
         if (nav === "all") return cards;
-        if (nav === "Business") return cards.filter(card => card.description.includes("business") || card.title.includes("business"));
-        if (nav === "services") return cards.filter(card => card.description.includes("services") || card.title.includes("services"));
+        if (nav === "business") return cards.filter(card => card.title.toLowerCase().includes("business") || card.description.toLowerCase().includes("business"));
+        if (nav === "services") return cards.filter(card => card.title.toLowerCase().includes("services") || card.description.toLowerCase().includes("services"));
         return cards;
     };
 
     const filteredCards = getFilteredCards();
 
     return (
-        <div className="pb-20 bg-gray-900 text-center text-white border-b-2 border-green-500 overflow-hidden">
-            {/* Section Header */}
+        <div className={`pb-20 text-center overflow-hidden border-b-2 border-green-500 ${theme === "dark" ? 'bg-[#111827] text-white' : 'bg-gray-50 text-gray-900'
+            }`}>
+            {/* Section Header - Updated with My Projects and gradient */}
             <motion.div
-                className="bg-gray-900 p-3 pt-8 text-2xl md:text-4xl flex justify-center items-center gap-2"
+                className={`p-3 pt-8  md:text-5xl font-extrabold md:font-bold text-3xl text-center w-full flex items-center justify-center gap-2 ${theme === "dark" ? 'bg-[#111827]' : 'bg-gray-50'
+                    }`}
                 initial={{ y: -50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
             >
                 <motion.div
-                    className="h-1 w-10 md:w-16 bg-green-400 rounded-xl"
+                    className={`h-1 w-10 md:w-16 lg:w-16 rounded-xl ${theme === "dark"
+                            ? 'bg-gradient-to-r from-green-400 to-emerald-400'
+                            : 'bg-gradient-to-r from-green-500 to-emerald-600'
+                        }`}
                     initial={{ width: 0 }}
-                    whileInView={{ width: "4rem" }}
+                    whileInView={{ width: "2.5rem" }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 />
@@ -182,21 +189,46 @@ const Projects = () => {
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
+                    className="flex items-center gap-1"
                 >
-                    Projects
+                    <span className={theme === "dark" ? 'text-white md:font-semibold font' : 'text-gray-900'}>
+                        My
+                    </span>
+                    <span className={theme === "dark"
+                        ? 'bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent'
+                        : 'bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent'
+                    }>
+                        Projects
+                    </span>
                 </motion.h1>
                 <motion.div
-                    className="h-1 w-10 md:w-16 bg-green-400 rounded-xl"
+                    className={`h-1 w-10 md:w-16 lg:w-16 rounded-xl ${theme === "dark"
+                            ? 'bg-gradient-to-r from-green-400 to-emerald-400'
+                            : 'bg-gradient-to-r from-green-500 to-emerald-600'
+                        }`}
                     initial={{ width: 0 }}
-                    whileInView={{ width: "4rem" }}
+                    whileInView={{ width: "2.5rem" }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.1 }}
                 />
             </motion.div>
 
+            {/* Subtitle */}
+            <motion.p
+                className={`text-xl ${theme === "dark" ? 'text-gray-300' : 'text-gray-600'} mb-6`}
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+            >
+                <span className={`${theme === "dark" ? 'text-green-400' : 'text-green-600'} font-semibold`}>
+                    What I've Built
+                </span>
+            </motion.p>
+
             {/* Filter Navigation */}
             <motion.nav
-                className="bg-gray-900 h-[70px] flex justify-center items-center"
+                className={`${theme === "dark" ? 'bg-[#111827]' : 'bg-gray-50'} h-[70px] flex justify-center items-center`}
                 variants={filterVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -205,7 +237,12 @@ const Projects = () => {
                 <ul className="flex gap-4 flex-wrap justify-center px-4">
                     <motion.li
                         onClick={() => setNav("all")}
-                        className={`lg:px-6 md:px-6 px-4 py-2 border rounded-md transition cursor-pointer ${nav === "home" ? "bg-green-400 text-black" : "border-green-400 hover:bg-green-400 hover:text-black"}`}
+                        className={`lg:px-6 md:px-6 px-4 py-2 border rounded-md transition cursor-pointer ${nav === "all"
+                                ? 'bg-green-500 text-white border-green-500'
+                                : theme === "dark"
+                                    ? 'border-green-400 hover:bg-green-400 hover:text-black text-white'
+                                    : 'border-green-600 hover:bg-green-600 hover:text-white text-gray-900'
+                            }`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -213,7 +250,12 @@ const Projects = () => {
                     </motion.li>
                     <motion.li
                         onClick={() => setNav("business")}
-                        className={`lg:px-6 md:px-6 px-4 py-2 border rounded-md transition cursor-pointer ${nav === "about" ? "bg-green-400 text-black" : "border-green-400 hover:bg-green-400 hover:text-black"}`}
+                        className={`lg:px-6 md:px-6 px-4 py-2 border rounded-md transition cursor-pointer ${nav === "business"
+                                ? 'bg-green-500 text-white border-green-500'
+                                : theme === "dark"
+                                    ? 'border-green-400 hover:bg-green-400 hover:text-black text-white'
+                                    : 'border-green-600 hover:bg-green-600 hover:text-white text-gray-900'
+                            }`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -221,7 +263,12 @@ const Projects = () => {
                     </motion.li>
                     <motion.li
                         onClick={() => setNav("services")}
-                        className={`lg:px-6 md:px-6 px-4 py-2 border rounded-md transition cursor-pointer ${nav === "services" ? "bg-green-400 text-black" : "border-green-400 hover:bg-green-400 hover:text-black"}`}
+                        className={`lg:px-6 md:px-6 px-4 py-2 border rounded-md transition cursor-pointer ${nav === "services"
+                                ? 'bg-green-500 text-white border-green-500'
+                                : theme === "dark"
+                                    ? 'border-green-400 hover:bg-green-400 hover:text-black text-white'
+                                    : 'border-green-600 hover:bg-green-600 hover:text-white text-gray-900'
+                            }`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -230,7 +277,7 @@ const Projects = () => {
                 </ul>
             </motion.nav>
 
-            {/* Projects Grid - 2 cards on lg and md, 1 on small, reduced card height */}
+            {/* Projects Grid */}
             <AnimatePresence mode="wait">
                 <motion.div
                     key={nav}
@@ -243,7 +290,10 @@ const Projects = () => {
                     {filteredCards.map((item, index) => (
                         <motion.div
                             key={item.id}
-                            className="bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-green-400/20 border border-gray-700 group flex flex-col h-auto group"
+                            className={`rounded-xl overflow-hidden shadow-lg hover:shadow-2xl border border-gray-700 group flex flex-col h-auto group ${theme === "dark"
+                                    ? 'bg-gradient-to-br from-[#1e293b] to-[#0f172a] hover:shadow-green-400/20'
+                                    : 'bg-gradient-to-br from-gray-100 to-white hover:shadow-green-300/30 border-gray-300'
+                                }`}
                             variants={cardVariants}
                             initial="hidden"
                             whileInView="visible"
@@ -251,12 +301,12 @@ const Projects = () => {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
                         >
-                            {/* Image Container - Max height increased */}
+                            {/* Image Container */}
                             <div className="relative overflow-hidden h-64 md:h-72 lg:h-80 flex-shrink-0 group-hover:scale-105 transition-transform ease-in-out duration-600">
                                 <motion.img
                                     src={item.image}
                                     alt={item.title}
-                                    className="w-full h-full"
+                                    className="w-full h-full object-cover"
                                     whileHover={{ scale: 1.1 }}
                                     transition={{ duration: 0.5 }}
                                 />
@@ -265,11 +315,14 @@ const Projects = () => {
                                 />
                             </div>
 
-                            {/* Content - Optimized height */}
-                            <div className="p-3 pt-2 flex flex-col flex-grow ">
-                                {/* Title - Left aligned */}
+                            {/* Content */}
+                            <div className="p-3 pt-2 flex flex-col flex-grow">
+                                {/* Title */}
                                 <motion.h1
-                                    className="text-xl md:text-2xl font-bold mb-1 group-hover:text-white text-green-400 transition-colors duration-300 text-left"
+                                    className={`text-xl md:text-2xl font-bold mb-1 transition-colors duration-300 text-left ${theme === "dark"
+                                            ? 'group-hover:text-white text-green-400'
+                                            : 'group-hover:text-gray-900 text-green-600'
+                                        }`}
                                     initial={{ y: 20, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     viewport={{ once: true }}
@@ -278,9 +331,10 @@ const Projects = () => {
                                     {item.title}
                                 </motion.h1>
 
-                                {/* Description - 3 lines max */}
+                                {/* Description */}
                                 <motion.p
-                                    className="text-gray-300 text-sm leading-relaxed text-left line-clamp-3 min-h-[60px]"
+                                    className={`text-sm leading-relaxed text-left line-clamp-3 min-h-[60px] ${theme === "dark" ? 'text-gray-300' : 'text-gray-600'
+                                        }`}
                                     initial={{ y: 20, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     viewport={{ once: true }}
@@ -289,7 +343,7 @@ const Projects = () => {
                                     {item.description}
                                 </motion.p>
 
-                                {/* Technologies with Icons - One line flex wrap */}
+                                {/* Technologies */}
                                 <motion.div
                                     className="mt-3"
                                     initial={{ y: 20, opacity: 0 }}
@@ -297,7 +351,10 @@ const Projects = () => {
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.3 }}
                                 >
-                                    <p className="text-green-400 text-xs font-semibold mb-1.5 text-left">Tech Stack</p>
+                                    <p className={`text-xs font-semibold mb-1.5 text-left ${theme === "dark" ? 'text-green-400' : 'text-green-600'
+                                        }`}>
+                                        Tech Stack
+                                    </p>
                                     <div className="flex flex-wrap gap-1.5">
                                         {item.technologies.map((tech, idx) => (
                                             <motion.div
@@ -310,9 +367,13 @@ const Projects = () => {
                                                 viewport={{ once: true }}
                                                 transition={{ delay: idx * 0.03 }}
                                             >
-                                                <div className="flex items-center gap-1.5 bg-gray-800/80 backdrop-blur-sm px-2.5 py-1 rounded-md border border-gray-600 hover:border-green-400 transition-all duration-300 cursor-pointer shadow-md">
+                                                <div className={`flex items-center gap-1.5 backdrop-blur-sm px-2.5 py-1 rounded-md border transition-all duration-300 cursor-pointer shadow-md ${theme === "dark"
+                                                        ? 'bg-gray-800/80 border-gray-600 hover:border-green-400'
+                                                        : 'bg-gray-200/80 border-gray-300 hover:border-green-500'
+                                                    }`}>
                                                     <tech.icon className={`${tech.color} text-xs`} />
-                                                    <span className="text-gray-200 font-medium text-[11px]">
+                                                    <span className={`font-medium text-[11px] ${theme === "dark" ? 'text-gray-200' : 'text-gray-700'
+                                                        }`}>
                                                         {tech.name}
                                                     </span>
                                                 </div>
@@ -322,7 +383,7 @@ const Projects = () => {
                                     </div>
                                 </motion.div>
 
-                                {/* Buttons - Min height fixed */}
+                                {/* Buttons */}
                                 <motion.div
                                     className="mt-4 flex justify-start gap-3 min-h-[44px]"
                                     initial={{ y: 20, opacity: 0 }}
@@ -344,7 +405,10 @@ const Projects = () => {
                                         href={item.codeLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="border border-gray-500 px-4 md:px-8 py-1.5 rounded-lg flex items-center gap-1.5 font-semibold text-xs hover:bg-gray-700 transition"
+                                        className={`border px-4 md:px-8 py-1.5 rounded-lg flex items-center gap-1.5 font-semibold text-xs transition ${theme === "dark"
+                                                ? 'border-gray-500 hover:bg-gray-700 text-white'
+                                                : 'border-gray-400 hover:bg-gray-200 text-gray-700'
+                                            }`}
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                     >
