@@ -46,7 +46,7 @@ const cards = [
         demoLink: "https://charity-blush-psi.vercel.app/",
         codeLink: "https://github.com/shakeeldev1/Charity",
         technologies: [
-            { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
+            { name: "Next.js", icon: SiNextdotjs, color: "" },
             { name: "Next.js i18n", icon: TbWorld, color: "text-blue-500" },
             { name: "Chart.js", icon: SiChartdotjs, color: "text-yellow-500" },
             { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
@@ -78,7 +78,7 @@ const cards = [
         demoLink: "https://business-startup-six.vercel.app/",
         codeLink: "https://github.com/shakeeldev1/business-startup",
         technologies: [
-            { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
+            { name: "Next.js", icon: SiNextdotjs, color: "" },
             { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
             { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
             { name: "Express", icon: SiExpress, color: "text-gray-400" },
@@ -93,7 +93,7 @@ const cards = [
         demoLink: "https://pest-control-omega.vercel.app/",
         codeLink: "https://github.com/shakeeldev1/Pest-Control",
         technologies: [
-            { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
+            { name: "Next.js", icon: SiNextdotjs, color: "" },
             { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-500" },
             { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
             { name: "Express", icon: SiExpress, color: "text-gray-400" },
@@ -306,7 +306,7 @@ const Projects = () => {
                                 <motion.img
                                     src={item.image}
                                     alt={item.title}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cove"
                                     whileHover={{ scale: 1.1 }}
                                     transition={{ duration: 0.5 }}
                                 />

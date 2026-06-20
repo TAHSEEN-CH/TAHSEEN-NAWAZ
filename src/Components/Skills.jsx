@@ -26,7 +26,7 @@ const skillsData = {
         { name: "CSS3", icon: FaCss3Alt, color: "text-blue-500" },
         { name: "JavaScript", icon: FaJs, color: "text-yellow-500" },
         { name: "React.js", icon: FaReact, color: "text-cyan-400" },
-        { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
+        { name: "Next.js", icon: SiNextdotjs, color: "" },
         { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-sky-500" },
         { name: "Bootstrap", icon: SiBootstrap, color: "text-purple-500" },
     ],
@@ -39,7 +39,7 @@ const skillsData = {
     ],
     Tools: [
         { name: "Git", icon: FaGitAlt, color: "text-orange-600" },
-        { name: "GitHub", icon: SiGithub, color: "text-white" },
+        { name: "GitHub", icon: SiGithub, color: "" },
         { name: "VS Code", icon: VscCode, color: "text-blue-500" },
     ],
 };
@@ -268,7 +268,7 @@ const Skills = () => {
                     transition={{ delay: 0.8, duration: 0.6 }}
                 >
                     <motion.div
-                        className={`h-1 w-32 bg-gradient-to-r from-transparent via-${theme === "dark" ? 'green-400' : 'green-600'} to-transparent rounded-full`}
+                        className={`h-1 w-32 bg-gradient-to-r from-transparent ${theme === "dark" ? 'via-green-400' : 'via-green-600'} to-transparent rounded-full`}
                         animate={{
                             scaleX: [1, 1.2, 1],
                         }}

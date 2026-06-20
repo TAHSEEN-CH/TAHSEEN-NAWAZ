@@ -65,7 +65,7 @@ const Footer = () => {
 
     const socialLinks = [
         { href: "https://pk.linkedin.com/in/tahseen-nawaz-7a8287322", icon: FaLinkedin, color: "text-[#0A66C2]", label: "LinkedIn" },
-        { href: "https://github.com/TAHSEEN-CH", icon: FaGithub, color: "text-white", label: "GitHub" },
+        { href: "https://github.com/TAHSEEN-CH", icon: FaGithub, color: "", label: "GitHub" },
         { href: "http://localhost:5173/http://localhost:5173/http://localhost:5173/http://localhost:5173/", icon: SiUpwork, color: "text-[#14A800]", label: "Upwork" },
         { href: "https://www.fiverr.com/tahseen_dev01?public_mode=true#!", icon: SiFiverr, color: "text-[#1DBF73]", label: "Fiverr" },
         { href: "https://www.instagram.com/tahseennawaz9?utm_source=qr&igsh=bWE1Y2cxYXF3NjBv", icon: FaInstagram, color: "text-pink-500", label: "Instagram" },
@@ -144,7 +144,7 @@ const Footer = () => {
                             className={`p-3 rounded-lg shadow-lg transition-all duration-300
                         ${theme === "dark"
                                     ? 'bg-[#2D3748] hover:shadow-green-400'
-                                    : 'bg-gray-300 hover:shadow-green-600/30 shadow-gray-300'
+                                    : 'bg-white hover:shadow-green-600/30 shadow-gray-300'
                                 }
                     `}
                             variants={iconVariants}
