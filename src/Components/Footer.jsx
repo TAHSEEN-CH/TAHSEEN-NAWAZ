@@ -66,7 +66,7 @@ const Footer = () => {
     const socialLinks = [
         { href: "https://pk.linkedin.com/in/tahseen-nawaz-7a8287322", icon: FaLinkedin, color: "text-[#0A66C2]", label: "LinkedIn" },
         { href: "https://github.com/TAHSEEN-CH", icon: FaGithub, color: "", label: "GitHub" },
-        { href: "http://localhost:5173/http://localhost:5173/http://localhost:5173/http://localhost:5173/", icon: SiUpwork, color: "text-[#14A800]", label: "Upwork" },
+        { href: "https://www.upwork.com/freelancers/~015957bf4d9e8e5a53?mp_source=share", icon: SiUpwork, color: "text-[#14A800]", label: "Upwork" },
         { href: "https://www.fiverr.com/tahseen_dev01?public_mode=true#!", icon: SiFiverr, color: "text-[#1DBF73]", label: "Fiverr" },
         { href: "https://www.instagram.com/tahseennawaz9?utm_source=qr&igsh=bWE1Y2cxYXF3NjBv", icon: FaInstagram, color: "text-pink-500", label: "Instagram" },
     ];

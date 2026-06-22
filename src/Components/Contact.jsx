@@ -1,25 +1,39 @@
 // Contact.jsx (Only animations added, layout unchanged)
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailJS from "@emailjs/browser";
 import { ThemeContext } from "../Context/Theme.Context";
+import Popup from "./Popup";
 
 const Contact = () => {
   const { theme, setTheme } = useContext(ThemeContext)
   const formRef = useRef();
 
+  // Popup states
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState('');
+  const [popupType, setPopupType] = useState(''); // 'success' or 'error'
+
+  // Modified handleSubmit function
   const handleSubmit = (e) => {
     e.preventDefault();
 
     emailJS.sendForm("service_3dgtxbg", "template_tkn87qg", formRef.current, "qzUjeVCIOscx-HBGv")
       .then(() => {
-        alert("Email Sent Successfully!");
+        setPopupMessage("Message Sent Successfully! 🎉");
+        setPopupType('success');
+        setShowPopup(true);
 
         if (formRef.current) {
           formRef.current.reset();
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setPopupMessage("Failed to send message. Please try again! 😞");
+        setPopupType('error');
+        setShowPopup(true);
+      });
   };
 
   return (
@@ -276,6 +290,13 @@ const Contact = () => {
           </form>
         </motion.div>
       </div>
+      {/* Popup Component */}
+      <Popup
+        show={showPopup}
+        setShow={setShowPopup}
+        message={popupMessage}
+        type={popupType}
+      />
     </div>
   );
 };

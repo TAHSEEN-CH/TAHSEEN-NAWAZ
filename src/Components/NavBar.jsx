@@ -95,8 +95,8 @@ function Navbar() {
         : 'text-gray-800 bg-gray-50'
       }
   ${scrolled
-        ? `bg-transparent backdrop-blur-md border-b-1 ${theme === "dark" ? 'border-gray-800 shadow-gray-800' : 'border-gray-200/80 border-2 shadow-gray-100/30 shadow-2xs'} shadow-md py-1.5`
-        : `border-b-1 ${theme === "dark" ? 'border-green-500/50 shadow-green-500/40' : 'border-green-600/30 shadow-green-600/20'} shadow-md py-2.5`
+        ? `bg-transparent backdrop-blur-md border-b-1 ${theme === "dark" ? 'border-gray-800 shadow-gray-800' : 'border-gray-100/30   shadow-gray-300 '} shadow-md py-0.5`
+        : `border-b-1 ${theme === "dark" ? 'border-green-500/50 shadow-green-500/40' : 'border-green-600/30 shadow-green-600/30'} shadow-md py-2`
       }`}>
 
       <nav className="flex items-center justify-between max-w-7xl mx-auto px-3 md:px-5 lg:px-0">

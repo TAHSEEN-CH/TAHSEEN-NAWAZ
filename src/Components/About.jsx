@@ -195,7 +195,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <a href="/Tahseen_Nawaz_Resume.pdf">
+              <a href="/Tahseen_Nawaz_Resume02.pdf">
                 <motion.button
                   className={`cursor-pointer px-8 py-3 rounded-lg font-semibold transition shadow-lg relative overflow-hidden group
                     ${theme === "dark"
