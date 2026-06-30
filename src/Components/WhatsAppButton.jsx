@@ -13,7 +13,7 @@ const WhatsAppButton = () => {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-6 right-6 z-50 bg-green-500 rounded-full p-4 shadow-lg hover:shadow-green-500/50 transition-all duration-300 group"
+            className="fixed bottom-6 right-6 z-40 bg-green-500 rounded-full p-4 shadow-lg hover:shadow-green-500/50 transition-all duration-300 group"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3, type: "spring", stiffness: 200 }}
