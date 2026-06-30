@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { FaWhatsapp } from 'react-icons/fa';
 
 const WhatsAppButton = () => {
-    const phoneNumber = "923280346345"; // Pakistan code +92 without plus
+    const phoneNumber = "923468074294"; // Pakistan code +92 without plus
     const message = "Hi! I'm interested in your services.";
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
