@@ -7,8 +7,10 @@ import Contact from './Components/Contact';
 import Projects from './Components/Projects';
 import Skills from './Components/Skills';
 import WhatsAppButton from './Components/WhatsAppButton';
+import useLenis from './hooks/useLenis';
 
 const App = () => {
+  useLenis();
 
   return (
     <div>
